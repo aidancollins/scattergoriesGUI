@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class scattergoriesGUI implements ActionListener {
 
-	private char letter = 'A';
+	private char letter;
 	private JLabel label;
 	private JFrame frame;
 	private JButton button;
@@ -15,20 +15,22 @@ public class scattergoriesGUI implements ActionListener {
 		frame = new JFrame();
 
 		button = new JButton("Generate Letter");
+		button.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button.addActionListener(this);
 
-		label = new JLabel("The letter for this round is: _");
+		label = new JLabel("To start, hit the button to generate the first random letter.");
+		label.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 		panel = new JPanel();
-		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-		panel.setLayout(new GridLayout(0, 1));
+		panel.setBorder(BorderFactory.createEmptyBorder(100, 30, 10, 30));
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.add(button);
 		panel.add(label);
 
 		frame.add(panel, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Scattergories Letter Generator");
-		frame.pack();
+		frame.setSize(new Dimension(500, 300));
 		frame.setVisible(true);
 	}
 
